@@ -20,4 +20,12 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+  input BookInput {
+    authors: [String]
+    description: String!
+    bookId: String!
+    image: String
+    link: String
+    title: String!
+  }
 `;
