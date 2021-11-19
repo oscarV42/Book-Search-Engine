@@ -16,4 +16,8 @@ const typeDefs = gql`
     link: String
     title: String!
   }
+  type Auth {
+    token: ID!
+    user: User
+  }
 `;
