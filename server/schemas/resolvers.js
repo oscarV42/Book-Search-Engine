@@ -1,4 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
+const { model } = require('mongoose');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 
@@ -46,6 +47,19 @@ const resolvers = {
         return updatedUser;
       }
       throw new AuthenticationError('You must be logged in!');
+    },
+    removeBook: async (parent, { bookId }, context) => {
+      if(context){
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { saveBooks: { bookId } } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError('You must be loggin in!')
     }
   }
 }
+
+module.exports = resolvers;
