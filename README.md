@@ -82,7 +82,7 @@ Run the following command to run tests:
 
 ## Deployed
 
-Live URL: https://thawing-river-72353.herokuapp.com/
+Live URL: https://floating-shore-13551.herokuapp.com/
 
 ## Questions
 
